@@ -68,5 +68,5 @@ def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Titl
 	Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 	while True:
 		temp=askopenfilename(defaultextension=Extension,filetypes=Extensions,title=Title) # show an "Open" dialog box and return the path to the selected file
-		if((temp !=''or temp is not None) or not Force):break
+		if((temp !=''and temp is not None) or not Force):break
 	return temp
