@@ -1,8 +1,13 @@
 # Import the latest files from https://github.com/s1rdev10us/PythonFiles/blob/main/Python/files.py (link may change)
 from json import loads, dumps, dump
 
+"""
+A Files management module designed for ease of use and simplicity rather than control
+"""
+
+
 #region
-def read(filen)->str:
+def read(filen:str)->str:
 	"""
 		Reads a text file and returns it
 	"""
@@ -11,7 +16,7 @@ def read(filen)->str:
 	f.close()
 	return filecont
 
-def readjs(filen) -> dict:
+def readjs(filen:str) -> dict:
 	"""
 		Reads a Json file and returns it as a dictionary
 	"""
@@ -22,7 +27,7 @@ def readjs(filen) -> dict:
 #endregion
 
 #region Write
-def write(content,filen)->None:
+def write(content:str,filen:str)->None:
 	"""
 		Writes a string to a file
 	"""
@@ -30,7 +35,7 @@ def write(content,filen)->None:
 	f.write(content)
 	f.close()
 
-def writejs(jsonf,filen)->None:
+def writejs(jsonf:dict|list,filen:str)->None:
 	"""
 		Write a Dictionary to a JSON file
 	"""
@@ -47,7 +52,6 @@ def overwritejs(json, file):
 	dump(json, file, indent=4)
 
 #endregion
-
 
 #region File Picker
 from tkinter import Tk
