@@ -24,6 +24,11 @@ class Logger:
 	(If intellisense is desired you need to use loggerName.log.exampleCommand for instance Logger().log.info("This is how we do it :)"))
 	"""
 	logFormat='[%(asctime)s] [%(funcName)s on line %(lineno)s] [%(levelname)s] %(message)s'
+	DEBUG=logging.DEBUG
+	INFO=logging.INFO
+	WARNING=logging.WARNING
+	ERROR=logging.ERROR
+	CRITICAL=logging.CRITICAL
 	def __init__(self,logLevel=logging.DEBUG) -> None:
 		pass
 		self.logLevel=logLevel
@@ -80,3 +85,4 @@ if(__name__=="__main__"):
 	def test():
 		logger.info('hi')
 	test()
+	# logging.
