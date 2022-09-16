@@ -20,6 +20,8 @@ class Logger:
 	Error is used in the event of an error
 
 	Critical is used in the event of something very bad or critical for the program to function (such as internet access)
+
+	(If intellisense is desired you need to use loggerName.log.exampleCommand for instance Logger().log.info("This is how we do it :)"))
 	"""
 	logFormat='[%(asctime)s] [%(funcName)s on line %(lineno)s] [%(levelname)s] %(message)s'
 	def __init__(self,logLevel=logging.DEBUG) -> None:
@@ -52,29 +54,29 @@ class Logger:
 			raise KeyError(f"Variable {__name} not found in object")
 
 
+if(__name__=="__main__"):
+
+	# Create and configure logger
+	logging.basicConfig(filename="newfile.log",format=Logger.logFormat,filemode='w')
+
+	# Creating an object
+	logger = logging.getLogger()
+
+	# Setting the threshold of logger to DEBUG
+	logger.setLevel(logging.NOTSET)
+
+	# Test messages
+	logger.debug("Harmless debug Message")
+	logger.info("Just an information")
+	logger.warning("Its a Warning")
+	logger.error("Did you try to divide by zero")
+	logger.critical("Internet is down")
 
 
-# Create and configure logger
-logging.basicConfig(filename="newfile.log",format=Logger.logFormat,filemode='w')
 
-# Creating an object
-logger = logging.getLogger()
-
-# Setting the threshold of logger to DEBUG
-logger.setLevel(logging.NOTSET)
-
-# Test messages
-logger.debug("Harmless debug Message")
-logger.info("Just an information")
-logger.warning("Its a Warning")
-logger.error("Did you try to divide by zero")
-logger.critical("Internet is down")
-
-
-
-logger=Logger()
-logger.log.info('hi')
-logger.info('hi')
-def test():
+	logger=Logger()
+	logger.log.info('hi')
 	logger.info('hi')
-test()
+	def test():
+		logger.info('hi')
+	test()
