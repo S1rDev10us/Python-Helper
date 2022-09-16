@@ -54,9 +54,10 @@ def overwritejs(json, file):
 #endregion
 
 #region File Picker
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename
+
 def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Title='Open')->str:
+	from tkinter import Tk
+	from tkinter.filedialog import askopenfilename
 	"""
 		Pulls up a default system file picker and returns a string representing the file location
 
@@ -73,5 +74,28 @@ def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Titl
 	Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 	while True:
 		temp=askopenfilename(defaultextension=Extension,filetypes=Extensions,title=Title) # show an "Open" dialog box and return the path to the selected file
+		if((temp !=''and temp is not None) or not Force):break
+	return temp
+
+
+def FolderPicker(*,Force=True,Title='Open')->str:
+	from tkinter import Tk
+	from tkinter.filedialog import  askdirectory
+	"""
+		Pulls up a default system file picker and returns a string representing the file location
+
+
+		Extension	-> The default extension for the file
+
+		Extensions	-> A list of tuples of strings of which the first item represents a label and the second represents the actual extension
+
+		Force		-> A boolean representing whether to force the user to pick a file before returning to the main code
+
+		Title		-> The string to show at the top of the window
+
+	"""
+	Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+	while True:
+		temp=askdirectory(initialdir='./',title=Title) # show an "Open" dialog box and return the path to the selected file
 		if((temp !=''and temp is not None) or not Force):break
 	return temp
