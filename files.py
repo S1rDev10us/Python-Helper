@@ -49,6 +49,9 @@ def overwritejs(json, file):
 		Does, something? Maybe... I think?
 	"""
 	file.seek(0)
+	#I had an issue where not putting this in added an extra } at the end of the file
+	file.truncate()
+	
 	dump(json, file, indent=4)
 
 #endregion
