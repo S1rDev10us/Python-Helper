@@ -51,7 +51,7 @@ def overwritejs(json, file):
 	file.seek(0)
 	#I had an issue where not putting this in added an extra } at the end of the file
 	file.truncate()
-	
+
 	dump(json, file, indent=4)
 
 #endregion
@@ -59,8 +59,6 @@ def overwritejs(json, file):
 #region File Picker
 
 def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Title='Open')->str:
-	from tkinter import Tk
-	from tkinter.filedialog import askopenfilename
 	"""
 		Pulls up a default system file picker and returns a string representing the file location
 
@@ -74,6 +72,8 @@ def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Titl
 		Title		-> The string to show at the top of the window
 
 	"""
+	from tkinter import Tk
+	from tkinter.filedialog import askopenfilename
 	Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 	while True:
 		temp=askopenfilename(defaultextension=Extension,filetypes=Extensions,title=Title) # show an "Open" dialog box and return the path to the selected file
@@ -82,8 +82,6 @@ def FilePicker(*,Extension='.json',Extensions=[('Json','.json')],Force=True,Titl
 
 
 def FolderPicker(*,Force=True,Title='Open')->str:
-	from tkinter import Tk
-	from tkinter.filedialog import  askdirectory
 	"""
 		Pulls up a default system file picker and returns a string representing the file location
 
@@ -97,6 +95,8 @@ def FolderPicker(*,Force=True,Title='Open')->str:
 		Title		-> The string to show at the top of the window
 
 	"""
+	from tkinter import Tk
+	from tkinter.filedialog import  askdirectory
 	Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 	while True:
 		temp=askdirectory(initialdir='./',title=Title) # show an "Open" dialog box and return the path to the selected file
