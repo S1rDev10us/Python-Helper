@@ -29,11 +29,11 @@ class Logger:
 	WARNING=logging.WARNING
 	ERROR=logging.ERROR
 	CRITICAL=logging.CRITICAL
-	def __init__(self,logLevel=logging.NOTSET) -> None:
+	def __init__(self,logLevel=logging.NOTSET,fileLoc:str='newfile.log') -> None:
 		pass
 		self.logLevel=logLevel
 		log_format = logging.Formatter(self.logFormat)
-		logging.basicConfig(filename="newfile.log",format=self.logFormat,filemode='w')
+		logging.basicConfig(filename=fileLoc,format=self.logFormat,filemode='w')
 		self.log=logging.getLogger(__name__)
 
 		# writing to stdout (console)
