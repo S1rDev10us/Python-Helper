@@ -29,7 +29,7 @@ class Logger:
 	WARNING=logging.WARNING
 	ERROR=logging.ERROR
 	CRITICAL=logging.CRITICAL
-	def __init__(self,logLevel=logging.DEBUG) -> None:
+	def __init__(self,logLevel=logging.NOTSET) -> None:
 		pass
 		self.logLevel=logLevel
 		log_format = logging.Formatter(self.logFormat)
