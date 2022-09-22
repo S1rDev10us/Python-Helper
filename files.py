@@ -40,7 +40,7 @@ def writejs(jsonf:dict|list,filen:str)->None:
 		Write a Dictionary to a JSON file
 	"""
 	f = open(filen, "w")
-	f.write(dumps(jsonf))
+	f.write(dumps(jsonf,indent=4))
 	f.close()
 
 #Wojiee's weird overwrite function that does almost the same thing as the regular write function
@@ -102,3 +102,5 @@ def FolderPicker(*,Force=True,Title='Open')->str:
 		temp=askdirectory(initialdir='./',title=Title) # show an "Open" dialog box and return the path to the selected file
 		if((temp !=''and temp is not None) or not Force):break
 	return temp
+if(__name__=="__main__"):
+	writejs({"test":"test","notTest":{"a":0}},'test')
