@@ -1,9 +1,10 @@
-# Import the latest files from https://github.com/s1rdev10us/PythonFiles/blob/main/Python/files.py (link may change)
-from json import loads, dumps, dump
-
 """
 A Files management module designed for ease of use and simplicity rather than control
 """
+# Import the latest files from https://github.com/s1rdev10us/PythonFiles/blob/main/Python/files.py (link may change)
+from json import loads, dumps, dump
+
+
 
 
 #region
