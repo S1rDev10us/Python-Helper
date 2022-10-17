@@ -1,6 +1,9 @@
 
+import math
+
+
 class Vector3():
-	def __init__(self,x:float|int=None,y:float|int=None,z:float|int=None,/) -> None:
+	def __init__(self,x:float|int=None,y:float|int=None,z:float|int=None,/) -> None:  # type: ignore
 		if(x==None):
 			self.x:float=float(0)
 			self.y:float=float(0)
