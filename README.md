@@ -3,7 +3,11 @@ A Collection of Python Modules that I created in order to improve development. M
 
 This is designed to be installed as a submodule
 
-(An example install command would be: ```git submodule add https://github.com/S1rDev10us/PythonHelper.git```)
+An example install command would be: 
+```cmd
+git submodule add https://github.com/S1rDev10us/PythonHelper.git
+```
+
 
 
 
