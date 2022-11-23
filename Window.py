@@ -1,5 +1,4 @@
-
-raise NotImplementedError('Code is not done')
+if(__name__!='__main__'):raise NotImplementedError('Code is not done')
 
 class Window:
 	import os	
@@ -12,6 +11,7 @@ class Window:
 		self.display=self.pygame.display.set_mode()
 		pass
 	def updateScreen(self,screen:list[list[tuple[int,int,int,int]]]) -> None:
+		
 		pass
 	def updateCaption(self,caption:str=None):
 		if(caption!=None):
