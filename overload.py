@@ -5,18 +5,22 @@ from inspect import signature, stack
 
 
 
-def findParams(funcPath,*args,**kwargs):
-	pass
 
 def overload(func:Callable)->Callable:
+	"""
+	A decorator that allows for overloading functions like you can with other languages such as java & C#
+	"""
 	funcPath=str(func).split(' ')[1]
 	funcParams=str(signature(func))
 	if(funcPath not in funcDict):
 		funcDict[funcPath]={}
 	
 	funcDict[funcPath][funcParams]=func
+	def findParams(funcPath,*args,**kwargs):
+		pass
 
 	def returned(*arguments,**keywordArguments):
+		print(funcDict)
 		params=findParams(funcPath,args=arguments,kwargs=keywordArguments)
 		if(params not in funcDict[funcPath]):
 			raise NotImplementedError(f'\n\n\nAn error occured with an overloaded function:\n	The argument collection that was passed in was not found in any overloads of this function\n	{funcPath = }\n	{arguments = }\n	{keywordArguments = }\n	Called from:\n		Function: "{stack()[1][3]}"\n		Line: {stack()[1][2]}\n		File: "{stack()[1][1]}"')
